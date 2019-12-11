@@ -37,12 +37,15 @@ public class IdentifierType implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Size(max = 100)
     @Column(name = "identifier_type_name")
     private String identifierTypeName;
+
     @Size(max = 100)
     @Column(name = "validator")
     private String validator;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "identifierTypeId")
     private Set<PatientServiceEnrollment> patientServiceEnrollment;
 

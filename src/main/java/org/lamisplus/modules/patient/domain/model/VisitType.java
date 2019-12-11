@@ -8,18 +8,10 @@ package org.lamisplus.modules.patient.domain.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Set;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /**
  *
@@ -35,10 +27,8 @@ public class VisitType implements Serializable {
     @NotNull
     @Column(name = "id")
     private Long id;
+
     @Size(max = 45)
     @Column(name = "visit_type_name")
     private String visitTypeName;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "visitTypeId")
-    private Set<PatientVisit> patientVisit;
-
 }

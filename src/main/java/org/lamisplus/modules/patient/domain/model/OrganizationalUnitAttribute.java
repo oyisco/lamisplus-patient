@@ -36,35 +36,42 @@ public class OrganizationalUnitAttribute implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Lob
     @Size(max = 65535)
     @Column(name = "physical_location")
     private String physicalLocation;
+
     @Lob
     @Size(max = 65535)
     @Column(name = "postal_address")
     private String postalAddress;
+
     @Column(name = "start_date")
     @Temporal(TemporalType.DATE)
     private Date startDate;
+
     @Size(max = 45)
     @Column(name = "ownership")
     private String ownership;
+
     @Size(max = 45)
     @Column(name = "ownership_type")
     private String ownershipType;
+
     @Size(max = 45)
     @Column(name = "facility_level")
     private String facilityLevel;
+
     @Size(max = 45)
     @Column(name = "facility_level_option")
     private String facilityLevelOption;
+
     @Size(max = 45)
     @Column(name = "days_operation")
     private String daysOperation;
+
     @Size(max = 45)
     @Column(name = "hours_operation")
     private String hoursOperation;
-
-    
 }

@@ -8,19 +8,9 @@ package org.lamisplus.modules.patient.domain.model;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
-import java.io.Serializable;
-import java.util.Collection;
-import java.util.Set;
-import javax.persistence.Basic;
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
+import java.io.Serializable;
 
 /**
  *
@@ -32,16 +22,14 @@ import javax.validation.constraints.Size;
 @Table(name = "sex_type")
 public class SexType implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Size(max = 45)
     @Column(name = "sex")
     private String sex;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "sexTypeId")
-    private Set<Person> personCollection;
-
-    
 }

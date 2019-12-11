@@ -36,9 +36,11 @@ public class OrganizationalUnitLevel implements Serializable {
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Size(max = 100)
     @Column(name = "organizational_unit_level_name")
     private String organizationalUnitLevelName;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "organizationalUnitLevelId")
     private Set<OrganizationalUnit> organizationalUnit;
 

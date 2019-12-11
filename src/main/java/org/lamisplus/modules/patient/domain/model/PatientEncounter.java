@@ -29,20 +29,22 @@ import javax.persistence.Table;
 @Table(name = "patient_encounter")
 @EqualsAndHashCode(of = "id")
 public class PatientEncounter implements Serializable {
-
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "encounter_date")
     private LocalDate encounterDate;
+
     @JoinColumn(name = "patient_visit_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private PatientVisit patientVisitId;
+    private PatientVisit patientVisit;
+
     @JoinColumn(name = "service_form_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private ServiceForm serviceFormId;
+    private ServiceForm serviceForm;
 
 }

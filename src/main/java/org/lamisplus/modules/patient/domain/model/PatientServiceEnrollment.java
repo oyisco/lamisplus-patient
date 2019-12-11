@@ -28,28 +28,32 @@ import javax.validation.constraints.Size;
 @Data
 @Table(name = "patient_service_enrollment")
 public class PatientServiceEnrollment implements Serializable {
-
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
     @Column(name = "id")
     private Long id;
+
     @Column(name = "enrollment_date")
     private LocalDate enrollmentDate;
+
     @Size(max = 45)
     @Column(name = "identifier_value")
     private String identifierValue;
+
     @Column(name = "exit_date")
     private LocalDate exitDate;
+
     @JoinColumn(name = "identifier_type_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private IdentifierType identifierTypeId;
+    private IdentifierType identifierType;
+
     @JoinColumn(name = "patient_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Patient patientId;
+    private Patient patient;
+
     @JoinColumn(name = "service_id", referencedColumnName = "id")
     @ManyToOne(optional = false)
-    private Service serviceId;
+    private Service service;
 
 }

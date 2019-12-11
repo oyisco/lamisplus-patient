@@ -31,9 +31,10 @@ import javax.validation.constraints.NotNull;
 @Data
 @EqualsAndHashCode(of = "id")
 @Table(name = "patient")
-@Document(indexName = "patient")
+@Document(indexName = "patient", type = "patients")
 public class Patient implements Serializable {
     private static final long serialVersionUID = 1L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Basic(optional = false)
@@ -50,6 +51,7 @@ public class Patient implements Serializable {
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
     private Set<PatientServiceEnrollment> patientServiceEnrollment;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "patientId")
     private Set<PatientVisit> patientVisit;
 

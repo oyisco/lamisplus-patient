@@ -12,7 +12,7 @@ public class LamisPatientModule extends AcrossModule {
     public LamisPatientModule() {
         super();
         addApplicationContextConfigurer(
-                new ComponentScanConfigurer(getClass().getPackage().getName() + ".service"));
+                new ComponentScanConfigurer(getClass().getPackage().getName() + ".resources"));
     }
 
     @Override
